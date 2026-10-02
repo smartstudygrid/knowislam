@@ -766,7 +766,7 @@
         <div class="rounded-3xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-lg transition-shadow">
           <div>
             <div class="h-56 w-full relative bg-slate-100 dark:bg-slate-900 overflow-hidden">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Muhammad_Ali_NYWTS.jpg/440px-Muhammad_Ali_NYWTS.jpg" 
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Muhammad_Ali_NYWTS.jpg?width=500" 
                    alt="Muhammad Ali" 
                    class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                    onerror="this.src='https://placehold.co/400x500/064436/ffffff?text=Muhammad+Ali'">
@@ -798,7 +798,7 @@
         <div class="rounded-3xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-lg transition-shadow">
           <div>
             <div class="h-56 w-full relative bg-slate-100 dark:bg-slate-900 overflow-hidden">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Kareem_Abdul-Jabbar_May_2014.jpg/440px-Kareem_Abdul-Jabbar_May_2014.jpg" 
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kareem_Abdul-Jabbar_May_2014.jpg?width=500" 
                    alt="Kareem Abdul-Jabbar" 
                    class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                    onerror="this.src='https://placehold.co/400x500/064436/ffffff?text=Kareem+Abdul-Jabbar'">
@@ -830,7 +830,7 @@
         <div class="rounded-3xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-lg transition-shadow">
           <div>
             <div class="h-56 w-full relative bg-slate-100 dark:bg-slate-900 overflow-hidden">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Nicolas_Anelka_2011.jpg/440px-Nicolas_Anelka_2011.jpg" 
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nicolas_Anelka_4720.jpg" 
                    alt="Nicolas Anelka" 
                    class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                    onerror="this.src='https://placehold.co/400x500/064436/ffffff?text=Nicolas+Anelka'">
@@ -862,7 +862,7 @@
         <div class="rounded-3xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-lg transition-shadow">
           <div>
             <div class="h-56 w-full relative bg-slate-100 dark:bg-slate-900 overflow-hidden">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Lauren_Booth_crop.jpg/440px-Lauren_Booth_crop.jpg" 
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lauren_Booth_%282018%29.jpg?width=500" 
                    alt="Lauren Booth" 
                    class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                    onerror="this.src='https://placehold.co/400x500/064436/ffffff?text=Lauren+Booth'">
@@ -1504,6 +1504,8 @@
 
     let currentVideos = [...initialVideos];
     let isAdminLoggedIn = false;
+    let firestoreLive = false;
+    let lastVideoSig = '';
 
     // Listen to Firebase Auth state
     if (auth) {
@@ -1531,16 +1533,20 @@
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'islam-fcfa3';
         const videosCollection = collection(db, 'artifacts', appId, 'public', 'data', 'videos');
         onSnapshot(videosCollection, (snapshot) => {
-          if (!snapshot.empty) {
-            const remoteVideos = [];
-            snapshot.forEach(docSnap => {
-              remoteVideos.push({ id: docSnap.id, ...docSnap.data() });
-            });
-            currentVideos = [...remoteVideos, ...initialVideos];
-            renderVideos();
-          }
+          const remoteVideos = [];
+          snapshot.forEach(docSnap => {
+            remoteVideos.push({ id: docSnap.id, ...docSnap.data() });
+          });
+          remoteVideos.sort((a, b) => String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
+          const sig = JSON.stringify(remoteVideos.map(v => [v.id, v.category, v.title, v.youtubeId || v.url, v.desc]));
+          if (firestoreLive && sig === lastVideoSig) return; // nothing changed: don't interrupt a playing video
+          firestoreLive = true;
+          lastVideoSig = sig;
+          currentVideos = remoteVideos; // Firestore is the single source of truth: add/remove updates the site live
+          renderVideos();
         }, (err) => {
           console.debug("Firestore offline or permission pending, using curated videos.");
+          if (!firestoreLive) currentVideos = [...initialVideos];
           renderVideos();
         });
       } catch (e) {
@@ -1613,7 +1619,7 @@
       box._facade = box.innerHTML;
       box.dataset.playing = '1';
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + box.dataset.yid + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + box.dataset.yid + '?autoplay=1&rel=0&playsinline=1&modestbranding=1' + (/^https?:$/.test(location.protocol) ? '&origin=' + encodeURIComponent(location.origin) : '');
       iframe.title = box.dataset.title || '';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1784,17 +1790,20 @@
         createdAt: new Date().toISOString()
       };
 
-      try {
-        if (db && isAdminLoggedIn) {
+      if (db && isAdminLoggedIn) {
+        try {
           const appId = typeof __app_id !== 'undefined' ? __app_id : 'islam-fcfa3';
           await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'videos'), newVideo);
+          // the live Firestore listener updates the page for everyone
+        } catch (err) {
+          console.warn("Save failed:", err);
+          showToast("Could not save the video online. Check your Firestore rules / connection.");
+          return;
         }
-      } catch (err) {
-        console.warn("Saving locally:", err);
+      } else {
+        currentVideos.unshift({ id: 'custom-' + Date.now(), ...newVideo });
+        renderVideos();
       }
-
-      currentVideos.unshift({ id: 'custom-' + Date.now(), ...newVideo });
-      renderVideos();
       closeEmbedModal();
       showToast("Video published to " + (category === 'reverts' ? 'Revert Stories' : 'Scholar Lectures'));
       switchVideoTab(category);
@@ -1807,8 +1816,14 @@
         if (db && !id.startsWith('seed-') && !id.startsWith('custom-')) {
           const appId = typeof __app_id !== 'undefined' ? __app_id : 'islam-fcfa3';
           await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'videos', id));
+          showToast("Video removed.");
+          return; // the live Firestore listener updates the page for everyone
         }
-      } catch(e) {}
+      } catch(e) {
+        console.warn("Delete failed:", e);
+        showToast("Could not remove the video online. Check your Firestore rules / connection.");
+        return;
+      }
       currentVideos = currentVideos.filter(v => v.id !== id);
       renderVideos();
       showToast("Video removed.");
