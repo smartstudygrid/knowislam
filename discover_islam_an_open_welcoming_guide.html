@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Islam | An Open, Welcoming Guide</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              50: '#FAF8F5',
+              100: '#F5F0E8',
+              200: '#EADFCF',
+              300: '#DECDB5',
+              800: '#4A4135',
+              900: '#2A241C',
+            },
+            emerald: {
+              850: '#064436',
+              950: '#022920'
+            },
+            terracotta: {
+              500: '#C86D51',
+              600: '#B25A3F'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+    
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    /* Subtle geometric islamic motif background */
+    .bg-arabesque {
+      background-color: #FAF8F5;
+      background-image: radial-gradient(#10b981 0.65px, transparent 0.65px), radial-gradient(#d97706 0.65px, #FAF8F5 0.65px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+      background-opacity: 0.04;
+    }
+
+    .dark .bg-arabesque {
+      background-color: #0f172a;
+      background-image: radial-gradient(#10b981 0.65px, transparent 0.65px), radial-gradient(#d97706 0.65px, #0f172a 0.65px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+    }
+
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dark .glassmorphism {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Custom smooth transition */
+    .transition-all-smooth {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-sand-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen font-sans antialiased selection:bg-emerald-200 selection:text-emerald-950">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 glassmorphism border-b border-sand-200/70 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="block font-display font-bold text-xl sm:text-2xl text-emerald-900 dark:text-emerald-400 tracking-tight leading-tight">
+              Discover Islam
+            </span>
+            <span class="block text-xs text-slate-500 dark:text-slate-400 font-medium tracking-wide">
+              An Open & Pressure-Free Journey
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-sm font-medium">
+          <a href="#home" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">The Essence</a>
+          <a href="#beliefs" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">Core Beliefs</a>
+          <a href="#pillars" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">Daily Practice</a>
+          <a href="#misconceptions" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">Clarifications</a>
+          <a href="#stories" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">Human Stories</a>
+          <a href="#mosque-guide" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">Inside a Mosque</a>
+          <a href="#resources" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors">FAQs & Terms</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="themeToggleBtn" aria-label="Toggle theme" class="p-2.5 rounded-xl border border-sand-200 dark:border-slate-700 hover:bg-sand-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">
+            <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <a href="#ask" class="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm shadow-md shadow-emerald-800/15 hover:shadow-emerald-800/30 transition-all">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>Ask a Question</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex items-center space-x-2 lg:hidden">
+          <button id="themeToggleBtnMobile" aria-label="Toggle dark mode" class="p-2 rounded-xl text-slate-600 dark:text-slate-300">
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+          <button id="mobileMenuBtn" aria-label="Open menu" class="p-2.5 rounded-xl border border-sand-200 dark:border-slate-800 hover:bg-sand-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-sand-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-6 py-6 space-y-3">
+      <a href="#home" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">The Essence</a>
+      <a href="#beliefs" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Core Beliefs</a>
+      <a href="#pillars" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Five Pillars & Daily Life</a>
+      <a href="#misconceptions" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Common Misconceptions</a>
+      <a href="#stories" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Human Stories</a>
+      <a href="#mosque-guide" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Inside a Mosque</a>
+      <a href="#resources" class="mobile-link block text-base font-medium py-2 text-slate-800 dark:text-slate-100 hover:text-emerald-700">Resources, FAQs & Terms</a>
+      <div class="pt-4 border-t border-sand-200 dark:border-slate-800">
+        <a href="#ask" class="mobile-link flex items-center justify-center space-x-2 w-full py-3 rounded-xl bg-emerald-700 text-white font-medium">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Ask An Anonymous Question</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="space-y-24 sm:space-y-32">
+
+    <!-- SECTION 1: Home Page & Welcome -->
+    <section id="home" class="relative pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden bg-arabesque">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Welcome Banner for Non-Muslims -->
+        <div class="mb-10 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-medium shadow-sm">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>A Safe, Respectful Space • Zero Pressure to Convert • Pure Learning</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+              Explore Islam with an <span class="text-emerald-700 dark:text-emerald-400 italic">open heart</span> and a clear mind.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+              Whether you are an atheist, Christian, seeker, student, or simply curious about headlines, welcome. This space is created especially for you to explore what Muslims actually believe, ask honest questions, and discover the shared humanity behind a faith of nearly two billion souls.
+            </p>
+
+            <!-- Quick Key Takeaways Badges -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex items-start space-x-3">
+                <div class="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400">
+                  <i data-lucide="feather" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">Rooted in Peace</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">From 'Salam' — harmony and tranquility through devotion.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex items-start space-x-3">
+                <div class="p-2 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">No Intermediaries</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Direct communion between the soul and its Creator.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex items-start space-x-3">
+                <div class="p-2 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400">
+                  <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">Universal Lineage</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Honoring Abraham, Moses, Jesus, and Muhammad.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="pt-4 flex flex-wrap gap-4 items-center">
+              <a href="#essence-cards" class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-base shadow-md hover:shadow-lg transition-all">
+                <span>Start with the Basics</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+              <a href="#ask" class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-sand-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-sand-200 dark:border-slate-700 font-medium text-base transition-colors">
+                <i data-lucide="help-circle" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+                <span>Ask Anything Anonymously</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Visual Feature: The Core Meaning Card -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-3xl p-8 bg-gradient-to-b from-white to-sand-100 dark:from-slate-800 dark:to-slate-850 border border-sand-200 dark:border-slate-700 shadow-xl overflow-hidden">
+              <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+              
+              <div class="flex items-center justify-between pb-6 border-b border-sand-200 dark:border-slate-700">
+                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-400">Foundational Fact</span>
+                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-mono font-medium">Linguistics</span>
+              </div>
+
+              <div class="my-6 space-y-4">
+                <div class="text-center py-3">
+                  <div class="text-3xl sm:text-4xl font-serif text-emerald-900 dark:text-emerald-300 font-medium tracking-wide">
+                    إِسْلَام • Islām
+                  </div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Derived from the tri-consonantal Arabic root <strong>S-L-M</strong></div>
+                </div>
+
+                <div class="space-y-3 text-sm text-slate-700 dark:text-slate-300 bg-white/70 dark:bg-slate-900/60 p-5 rounded-2xl border border-sand-200/60 dark:border-slate-750">
+                  <p class="leading-relaxed">
+                    <strong>1. Salam (سلام):</strong> Peace, wholeness, safety, and security.
+                  </p>
+                  <p class="leading-relaxed">
+                    <strong>2. Aslama (أسلم):</strong> Voluntary surrender of one's ego and will to God.
+                  </p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700/60 pt-3">
+                    A <em>Muslim</em> is simply one who voluntarily seeks deep inner peace through harmony with divine moral truth.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Quote block -->
+              <blockquote class="border-l-2 border-emerald-600 pl-4 italic text-sm text-slate-600 dark:text-slate-300 font-serif">
+                "There is no compulsion in religion. Truth stands out clear from falsehood."
+                <footer class="text-xs not-italic font-sans text-slate-400 mt-1">— The Quran (Chapter 2, Verse 256)</footer>
+              </blockquote>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Essence: What is Islam, Who is Allah, Purpose of Life -->
+    <section id="essence-cards" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Chapter 1</h2>
+        <p class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">The Essence of Islam</p>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Before exploring rules or practices, let us understand the three profound questions at the core of human existence.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: What is Islam? -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800/90 border border-sand-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mb-6">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3">1. What is Islam?</h3>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 mb-4">
+              Islam is not an ethnic tribe or an exclusive club. It is a complete worldview based on the conscious choice to align one's heart, intellect, and deeds with the Creator.
+            </p>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              It views human beings not as born inherently condemned or broken, but born pure with an innate spiritual compass (<span class="italic text-emerald-800 dark:text-emerald-400 font-medium">Fitrah</span>) that yearns for love, fairness, and purposeful living.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 flex items-center text-xs text-slate-500 dark:text-slate-400">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0"></i>
+            <span>Universal moral framework for all people</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Who is Allah? -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800/90 border border-sand-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-6">
+              <i data-lucide="sun-medium" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3">2. Who is Allah?</h3>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 mb-4">
+              A common misconception is that "Allah" is a foreign moon god or private deity. In truth, <strong class="text-slate-800 dark:text-white">Allah is simply the Arabic word for The One True God</strong>.
+            </p>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Arab Christians and Arab Jews have prayed to "Allah" centuries before Islam and still do today in their Arabic Bibles. His chief attributes repeated continuously in daily life are <em>Ar-Rahman</em> (The Boundlessly Merciful) and <em>Ar-Raheem</em> (The Perpetually Kind).
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 flex items-center text-xs text-slate-500 dark:text-slate-400">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0"></i>
+            <span>The same God of Abraham, Moses, and Jesus</span>
+          </div>
+        </div>
+
+        <!-- Card 3: The Purpose of Life -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800/90 border border-sand-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 flex items-center justify-center mb-6">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3">3. The Purpose of Life</h3>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 mb-4">
+              Why are we here? In Islam, this temporary life is an opportunity to cultivate the soul. We are trustees on Earth tasked with caring for one another, pursuing truth, and loving the Divine.
+            </p>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Inner peace is not found by amassing ephemeral worldly status, but by anchoring our restless souls to that which is eternal and merciful.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 flex items-center text-xs text-slate-500 dark:text-slate-400">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0"></i>
+            <span>Finding tranquility beyond material distractions</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: Core Beliefs: The 6 Articles of Faith -->
+    <section id="beliefs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="bg-white dark:bg-slate-800/60 rounded-3xl border border-sand-200 dark:border-slate-700 p-8 sm:p-12 shadow-sm">
+        
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Theology & Creed</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-1 mb-4">
+            The Six Articles of Faith: What Muslims Believe
+          </h2>
+          <p class="text-base text-slate-600 dark:text-slate-300">
+            A Muslim's theological framework is grounded in six straightforward pillars of conviction. There are no secret doctrines or hidden tiers—every believer affirms these truths.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Article 1 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">01</span>
+              <i data-lucide="infinity" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Absolute Monotheism (Tawhid)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              The supreme oneness and uniqueness of God. He has no partners, no parents, no children, and no physical form. Worshipping statues, celebrities, or created things is strictly avoided.
+            </p>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">02</span>
+              <i data-lucide="feather" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">The Angels & Unseen Realm</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Belief in pure beings of light created by God who obey His commands with joyful devotion—including Gabriel (Jibreel), who conveyed divine messages to human prophets.
+            </p>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">03</span>
+              <i data-lucide="book-open" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">The Divine Scriptures</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Belief in the original revelations given to Moses (Torah), David (Psalms), and Jesus (Gospel / Injeel), culminative in the Quran preserved verbatim in its original classical Arabic.
+            </p>
+          </div>
+
+          <!-- Article 4 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">04</span>
+              <i data-lucide="scroll" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">The Chain of Prophets</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Belief in all prophets sent throughout history: Adam, Noah, Abraham, Moses, Jesus, and Muhammad (peace be upon them all). Muslims love and honor all of them as exemplars of moral fortitude.
+            </p>
+          </div>
+
+          <!-- Article 5 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">05</span>
+              <i data-lucide="scale" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">The Day of Judgment (Akhirah)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Every soul will be resurrected and accounted for with perfect justice and limitless mercy. Oppression will be set right, kindness rewarded, and true justice established for eternity.
+            </p>
+          </div>
+
+          <!-- Article 6 -->
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-slate-900/50 border border-sand-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-emerald-700 dark:text-emerald-400 font-mono text-sm font-bold">06</span>
+              <i data-lucide="compass" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Divine Decree & Wisdom (Qadar)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Nothing occurs outside of God's knowledge and ultimate plan. Humans possess authentic free will and moral responsibility, while trusting that hardship carries hidden lessons and growth.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Prophets Interactive Chain Explorer -->
+        <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-emerald-900 text-white relative overflow-hidden">
+          <div class="relative z-10 max-w-2xl">
+            <span class="text-xs uppercase tracking-wider font-semibold text-emerald-300">Shared Heritage</span>
+            <h4 class="font-display text-2xl font-bold mt-1 mb-2">Did You Know? Jesus & Moses are deeply revered in Islam.</h4>
+            <p class="text-sm text-emerald-100 leading-relaxed mb-4">
+              Moses is mentioned over 130 times in the Quran, more than any other individual. Jesus (known in Arabic as Isa) is hailed as a noble Messiah born to the Virgin Mary (Maryam), who has an entire chapter of the Quran named in her honor.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs font-medium">
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Adam (آدم)</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Noah / Nuh (نوح)</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Abraham / Ibrahim (إبراهيم)</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Moses / Musa (موسى)</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Jesus / Isa (عيسى)</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-700">Muhammad (محمد)</span>
+            </div>
+          </div>
+          <div class="absolute -right-8 -bottom-8 opacity-10 text-white pointer-events-none">
+            <i data-lucide="book" class="w-64 h-64"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Daily Life & Practice: The Five Pillars -->
+    <section id="pillars" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Lived Practice</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          The Five Pillars: Living the Faith Daily
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Faith in Islam is not merely an intellectual debate; it is an embodied lifestyle designed to heal the heart, discipline the ego, and cultivate compassion for the vulnerable.
+        </p>
+      </div>
+
+      <!-- Five Pillars Interactive Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        
+        <!-- Pillar 1: Shahada -->
+        <div class="rounded-3xl p-6 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-emerald-600 transition-colors">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400">Pillar 1</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Shahada</h3>
+            <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">Declaration of Faith</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <em>"There is none worthy of worship except God, and Muhammad is His servant and messenger."</em> The conscious affirmation that anchors life in sacred simplicity.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700/80 text-xs text-slate-500 dark:text-slate-400">
+            <strong>Spiritual Benefit:</strong> Liberates the human heart from worshiping power, wealth, or self-image.
+          </div>
+        </div>
+
+        <!-- Pillar 2: Salah -->
+        <div class="rounded-3xl p-6 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-emerald-600 transition-colors">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400">Pillar 2</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Salah</h3>
+            <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">Daily Five Prayers</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Five rhythmic pauses distributed throughout the day (Dawn, Noon, Afternoon, Sunset, Night) with physical prostrations facing the Kaaba in Makkah.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700/80 text-xs text-slate-500 dark:text-slate-400">
+            <strong>Spiritual Benefit:</strong> Daily spiritual detox to quiet modern anxiety, reset ego, and find grounding.
+          </div>
+        </div>
+
+        <!-- Pillar 3: Zakat -->
+        <div class="rounded-3xl p-6 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-emerald-600 transition-colors">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="coins" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400">Pillar 3</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Zakat</h3>
+            <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">Mandatory Almsgiving</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A mandatory 2.5% annual contribution on stored, accumulated wealth (not mere daily income) directly distributed to the poor, orphans, and destitute.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700/80 text-xs text-slate-500 dark:text-slate-400">
+            <strong>Spiritual Benefit:</strong> Purges greed from the wealthy and eliminates systemic poverty with dignified solidarity.
+          </div>
+        </div>
+
+        <!-- Pillar 4: Sawm -->
+        <div class="rounded-3xl p-6 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-emerald-600 transition-colors">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="moon-star" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400">Pillar 4</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Sawm</h3>
+            <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">Fasting in Ramadan</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Abstaining from food, drink, and intimate relations from dawn till sunset for 30 days, accompanied by intense charity and restraint from gossip and anger.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700/80 text-xs text-slate-500 dark:text-slate-400">
+            <strong>Spiritual Benefit:</strong> Deep bodily empathy for the hungry, mastered self-control, and heightened gratitude.
+          </div>
+        </div>
+
+        <!-- Pillar 5: Hajj -->
+        <div class="rounded-3xl p-6 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-emerald-600 transition-colors">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="globe-2" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono font-semibold text-slate-400">Pillar 5</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1 mb-2">Hajj</h3>
+            <p class="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">Pilgrimage to Makkah</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              A once-in-a-lifetime journey for those physically and financially able, uniting millions of all races, nations, and social classes in identical unstitched white garments.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700/80 text-xs text-slate-500 dark:text-slate-400">
+            <strong>Spiritual Benefit:</strong> Ultimate demonstration of human equality before God; monarchs and laborers stand side-by-side.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Everyday Manners & Human Ethics -->
+      <div class="mt-12 rounded-3xl bg-sand-100 dark:bg-slate-800/80 p-8 sm:p-10 border border-sand-200 dark:border-slate-700">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
+            <i data-lucide="smile" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Everyday Manners (Adab): Faith in the Small Things</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Worship in Islam extends into every single kind human interaction.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-sand-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <i data-lucide="heart" class="w-4 h-4 text-emerald-600"></i> Smiling is Charity
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+              The Prophet Muhammad taught that smiling at your neighbor, offering comfort, or removing a stray thorn or trash from a public path is rewarded as charity.
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-sand-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <i data-lucide="users-2" class="w-4 h-4 text-emerald-600"></i> Honoring Parents
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+              Mothers are given extraordinary prominence (honored three times over before the father), and speaking harshly or with a sigh ("uff") to elderly parents is forbidden.
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-sand-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i> Environmental Care
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+              Wasting flowing water even while washing at a river is discouraged. "If the Day of Resurrection begins and you hold a sapling, plant it anyway."
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-sand-200 dark:border-slate-800 space-y-2">
+            <h4 class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+              <i data-lucide="home" class="w-4 h-4 text-emerald-600"></i> Rights of the Neighbor
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+              A Muslim is commanded never to sleep with a full stomach while their neighbor goes hungry, regardless of that neighbor's religious background or race.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 4: Clarifications & Common Misconceptions -->
+    <section id="misconceptions" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Direct & Honest</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          Clarifications & Common Misconceptions
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Addressing the elephants in the room with historical facts, nuanced context, and authentic scripture.
+        </p>
+      </div>
+
+      <!-- Misconceptions Filter Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-8">
+        <button onclick="filterMisconception('all')" class="misc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-emerald-700 text-white transition-all">All Topics</button>
+        <button onclick="filterMisconception('women')" class="misc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 hover:bg-sand-100 transition-all">Women & Hijab</button>
+        <button onclick="filterMisconception('jesus')" class="misc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 hover:bg-sand-100 transition-all">Jesus & Christianity</button>
+        <button onclick="filterMisconception('peace')" class="misc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 hover:bg-sand-100 transition-all">Peace vs. Violence (Jihad)</button>
+        <button onclick="filterMisconception('conversion')" class="misc-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 hover:bg-sand-100 transition-all">No Forced Conversion</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="misconceptionsContainer">
+        
+        <!-- Misconception 1: Women in Islam -->
+        <div class="misc-card misc-women bg-white dark:bg-slate-800 rounded-3xl p-7 border border-sand-200 dark:border-slate-700 shadow-sm space-y-4">
+          <div class="flex items-center space-x-3 text-terracotta-500">
+            <div class="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/60">
+              <i data-lucide="scale" class="w-5 h-5 text-terracotta-500"></i>
+            </div>
+            <span class="text-xs uppercase font-bold tracking-wider">Myth vs Reality</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">
+            "Are women oppressed or second-class in Islam?"
+          </h3>
+          <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p>
+              In the 7th century—long before modern Western legal systems granted women the right to vote or own property—Islam granted women the independent right to own wealth, choose their spouse, divorce, conduct business, inherit property, and retain their maiden surname.
+            </p>
+            <p>
+              <strong>The Hijab:</strong> The headscarf is practiced as an act of personal devotion and modesty for God, rejecting the hyper-commercial objectification of women's physical bodies. Millions of Muslim female scientists, prime ministers, athletes, and academics wear it proudly as a crown of dignity.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-800 dark:text-emerald-400 italic">
+            "The most complete believers in faith are those with the best character, and the best of you are those best to their wives." — Prophetic Saying
+          </div>
+        </div>
+
+        <!-- Misconception 2: Jesus in Islam -->
+        <div class="misc-card misc-jesus bg-white dark:bg-slate-800 rounded-3xl p-7 border border-sand-200 dark:border-slate-700 shadow-sm space-y-4">
+          <div class="flex items-center space-x-3 text-blue-600">
+            <div class="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/60">
+              <i data-lucide="sparkle" class="w-5 h-5 text-blue-600"></i>
+            </div>
+            <span class="text-xs uppercase font-bold tracking-wider">Theological Bridge</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">
+            "Do Muslims reject Jesus?"
+          </h3>
+          <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p>
+              Quite the opposite: <strong class="text-slate-800 dark:text-white">A person cannot be a Muslim without believing in Jesus</strong> (Isa). Muslims affirm his miraculous virgin birth without a human father, his healings of the blind and leper, and his ascension.
+            </p>
+            <p>
+              The difference is purely theological regarding divinity: Muslims view Jesus not as the literal Son of God or God incarnate, but as one of God's greatest and most beloved human prophets who called mankind solely to worship the Father / Creator.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-800 dark:text-emerald-400 italic">
+            Chapter 19 of the Quran is named "Maryam" (Mary), honoring her as the paragon of faith among all women.
+          </div>
+        </div>
+
+        <!-- Misconception 3: Peace vs Violence -->
+        <div class="misc-card misc-peace bg-white dark:bg-slate-800 rounded-3xl p-7 border border-sand-200 dark:border-slate-700 shadow-sm space-y-4">
+          <div class="flex items-center space-x-3 text-emerald-600">
+            <div class="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60">
+              <i data-lucide="shield" class="w-5 h-5 text-emerald-600"></i>
+            </div>
+            <span class="text-xs uppercase font-bold tracking-wider">Linguistic & Moral Clarity</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">
+            "What does 'Jihad' really mean? Does Islam endorse terrorism?"
+          </h3>
+          <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p>
+              The word <em>Jihad</em> literally means "to strive or exert effort." The greatest jihad is the internal moral battle against one's own vices, selfishness, and anger.
+            </p>
+            <p>
+              Regarding combat, Islamic law only permits armed engagement in strict self-defense or against active oppression. <strong>Killing civilians, children, clergy, monks, damaging crops, or attacking churches and synagogues is unequivocally forbidden</strong> under explicit classical Quranic rules of engagement.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-800 dark:text-emerald-400 italic">
+            "Whoever kills an innocent soul, it is as if he had slain all of humanity; and whoever saves a life, it is as if he saved all humanity." (Quran 5:32)
+          </div>
+        </div>
+
+        <!-- Misconception 4: No Forced Conversion -->
+        <div class="misc-card misc-conversion bg-white dark:bg-slate-800 rounded-3xl p-7 border border-sand-200 dark:border-slate-700 shadow-sm space-y-4">
+          <div class="flex items-center space-x-3 text-purple-600">
+            <div class="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/60">
+              <i data-lucide="unlock" class="w-5 h-5 text-purple-600"></i>
+            </div>
+            <span class="text-xs uppercase font-bold tracking-wider">Scriptural Freedom</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">
+            "Was Islam spread by the sword or forced conversions?"
+          </h3>
+          <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p>
+              Faith forced under duress is invalid and considered hypocrisy in Islamic theology. The Quran explicitly establishes: <em>"There is no compulsion in religion"</em> (2:256).
+            </p>
+            <p>
+              The most populous Muslim nation in the world today—<strong>Indonesia</strong> (over 230 million Muslims)—saw no Muslim armies ever march on its soil; Islam arrived there entirely through honest maritime spice traders and their trustworthy business ethics.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-800 dark:text-emerald-400 italic">
+            Centuries of coexistence in Andalusia (Spain) and the Ottoman Empire allowed Jewish and Christian communities to flourish freely.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: Real Stories & Inside a Mosque -->
+    <section id="stories" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">The Human Connection</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          Real Stories: Why People From All Walks Embrace Islam
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Faith is personal. Read perspectives from thinkers, academics, and regular people who journeyed through agnosticism, other faiths, and questions.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Story 1: Former Atheist / Science Perspective -->
+        <div class="rounded-3xl p-7 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-700 dark:text-slate-200">
+                DR
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Dr. Rebecca Evans</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Former Agnostic • Biologist (UK)</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "I assumed religion required shutting off the intellect. When I actually opened the Quran, I was startled by how frequently it challenged readers to look at the stars, the rain, genetics, and embryology: <em>'Do you not reflect?'</em> Islam didn't ask me to abandon science—it gave my scientific wonder a profound moral anchor."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+            Path: Rational Inquiry & Reflection
+          </div>
+        </div>
+
+        <!-- Story 2: Former Christian Minister / Youth Pastor -->
+        <div class="rounded-3xl p-7 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center font-bold text-amber-800 dark:text-amber-300">
+                MT
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Marcus Turner</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Former Youth Minister (USA)</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "I loved Jesus with all my heart, but I continuously struggled with the concept of the Trinity and original sin. When I learned that Islam honors Jesus as a beloved Messiah and emphasizes direct, unmediated repentance straight to God, it didn't feel like I was leaving Jesus—it felt like I was returning to his original prayer in Gethsemane."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+            Path: Theological Coherence & Jesus's Legacy
+          </div>
+        </div>
+
+        <!-- Story 3: Social Justice Activist -->
+        <div class="rounded-3xl p-7 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/60 flex items-center justify-center font-bold text-teal-800 dark:text-teal-300">
+                LS
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Layla Schmidt</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Community Organizer (Germany)</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "What captivated me was seeing Malcolm X's transformation during Hajj—seeing white, Black, Arab, and Asian pilgrims in identical humble robes. Islam solved the poison of racism 1,400 years ago when the Prophet declared: <em>'No white is superior to a Black, nor a Black superior to a white, except in piety.'</em>"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-sand-100 dark:border-slate-700 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+            Path: Radical Universal Brotherhood
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Interactive Mosque Guide (Demystifying the Mosque) -->
+      <div id="mosque-guide" class="mt-20 scroll-mt-24 rounded-3xl bg-emerald-950 text-white p-8 sm:p-12 relative overflow-hidden">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs uppercase tracking-widest font-semibold text-emerald-400">Demystifying the Space</span>
+          <h3 class="font-display text-3xl font-bold mt-1 mb-3">Inside a Mosque (Masjid): What to Expect</h3>
+          <p class="text-sm text-emerald-200 leading-relaxed">
+            Have you ever walked past a mosque and wondered what happens behind the doors? Mosques are open houses of peace. Here is a friendly guide so you know exactly what to anticipate when you visit.
+          </p>
+        </div>
+
+        <!-- Mosque zones interactive visual explorer -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          
+          <div class="p-5 rounded-2xl bg-emerald-900/70 border border-emerald-800 hover:bg-emerald-900 transition-colors">
+            <div class="text-amber-400 mb-3"><i data-lucide="footprints" class="w-6 h-6"></i></div>
+            <h4 class="font-bold text-base mb-1">1. Shoe Area</h4>
+            <p class="text-xs text-emerald-200 leading-relaxed">
+              Everyone removes their shoes at the entrance to keep the carpets clean for prayer, since worshippers place their foreheads upon the floor.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-900/70 border border-emerald-800 hover:bg-emerald-900 transition-colors">
+            <div class="text-amber-400 mb-3"><i data-lucide="droplet" class="w-6 h-6"></i></div>
+            <h4 class="font-bold text-base mb-1">2. Wudu Area</h4>
+            <p class="text-xs text-emerald-200 leading-relaxed">
+              A serene ablution room where worshippers wash hands, face, arms, and feet with fresh water before standing in prayer.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-900/70 border border-emerald-800 hover:bg-emerald-900 transition-colors">
+            <div class="text-amber-400 mb-3"><i data-lucide="layout" class="w-6 h-6"></i></div>
+            <h4 class="font-bold text-base mb-1">3. Main Hall (Open Space)</h4>
+            <p class="text-xs text-emerald-200 leading-relaxed">
+              No pews, chairs, statues, or altars. It is an open carpeted sanctuary featuring geometric art and Arabic calligraphy.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-900/70 border border-emerald-800 hover:bg-emerald-900 transition-colors">
+            <div class="text-amber-400 mb-3"><i data-lucide="compass" class="w-6 h-6"></i></div>
+            <h4 class="font-bold text-base mb-1">4. Mihrab & Minbar</h4>
+            <p class="text-xs text-emerald-200 leading-relaxed">
+              The <em>Mihrab</em> is an ornamental niche showing the direction of Makkah (Qiblah). The <em>Minbar</em> is the small raised pulpit for the Friday sermon.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Mosque etiquette tips -->
+        <div class="mt-8 pt-6 border-t border-emerald-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-emerald-200">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span><strong>Visitor Etiquette:</strong> Modest, loose-fitting clothing. Guests are welcome to sit quietly at the back and observe.</span>
+          </div>
+          <button onclick="openMosqueModal()" class="px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-medium transition-colors">
+            Read Mosque Visitor Checklist
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 6: Resources, FAQs & Glossary -->
+    <section id="resources" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- FAQs Section (Left Column) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Common Questions</span>
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mt-1 mb-2">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Honest answers to everyday cultural and religious questions.
+            </p>
+          </div>
+
+          <!-- FAQ Accordions -->
+          <div class="space-y-3" id="faqAccordion">
+            
+            <!-- FAQ 1 -->
+            <div class="rounded-2xl border border-sand-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+              <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-semibold text-slate-900 dark:text-white flex justify-between items-center hover:bg-sand-50 dark:hover:bg-slate-750 transition-colors">
+                <span class="text-sm sm:text-base">What does "Halal" mean, and why is pork/alcohol forbidden?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+              </button>
+              <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-sand-100 dark:border-slate-700 pt-3">
+                <em>Halal</em> means "permissible." Food regulations ensure animals are treated humanely, slaughtered swiftly invoking God's name to acknowledge that life belongs to God, and fully drained of blood. Alcohol and mind-altering intoxicants are forbidden to protect the human intellect, liver health, and family well-being from self-destructive dependencies.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="rounded-2xl border border-sand-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+              <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-semibold text-slate-900 dark:text-white flex justify-between items-center hover:bg-sand-50 dark:hover:bg-slate-750 transition-colors">
+                <span class="text-sm sm:text-base">Why do Muslims pray in Arabic even if they don't speak it?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+              </button>
+              <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-sand-100 dark:border-slate-700 pt-3">
+                Arabic serves as a universal spiritual unifier. A Muslim from Tokyo, Rio de Janeiro, Detroit, or Cairo can step into any mosque worldwide and pray shoulder-to-shoulder with identical recitations without linguistic confusion. However, personal supplicatory prayers (called <em>Dua</em>) can be made in any language, at any second, silently or aloud.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="rounded-2xl border border-sand-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+              <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-semibold text-slate-900 dark:text-white flex justify-between items-center hover:bg-sand-50 dark:hover:bg-slate-750 transition-colors">
+                <span class="text-sm sm:text-base">Can Muslims have pet dogs?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+              </button>
+              <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-sand-100 dark:border-slate-700 pt-3">
+                Dogs are respected creatures of God. In fact, a famous prophetic tradition recounts how a sinful man was granted Paradise simply for fetching water in his shoe to quench the thirst of a dying dog. Due to hygiene considerations regarding saliva in prayer areas, traditional Islamic rulings advise keeping dogs primarily for working roles (guarding, farming, hunting) rather than indoors, though cruelty to any animal is strictly condemned.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="rounded-2xl border border-sand-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+              <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-semibold text-slate-900 dark:text-white flex justify-between items-center hover:bg-sand-50 dark:hover:bg-slate-750 transition-colors">
+                <span class="text-sm sm:text-base">How does someone become a Muslim if they ever choose to?</span>
+                <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+              </button>
+              <div class="faq-content hidden px-5 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-sand-100 dark:border-slate-700 pt-3">
+                There are no baptismal rites, fees, or institutional hierarchies. If an individual genuinely believes in the oneness of God and that Muhammad is His messenger, they simply state the <em>Shahada</em> with personal sincerity. Every past mistake is forgiven upon entering the faith, offering a fresh, clean slate.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Free Quran & Next Steps Box -->
+          <div class="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="space-y-1">
+              <h4 class="font-bold text-emerald-900 dark:text-emerald-200 text-sm">Want to read the Quran for yourself?</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">You can request a free physical translation or explore clean digital editions.</p>
+            </div>
+            <button onclick="openNextStepsModal()" class="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs whitespace-nowrap shadow-sm">
+              Free Quran & Mosque Visit Guide
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Glossary of Terms (Right Column) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-emerald-700 dark:text-emerald-400">Vocabulary</span>
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mt-1 mb-2">
+              Everyday Glossary
+            </h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Words you often hear in conversations and their true meanings.
+            </p>
+          </div>
+
+          <!-- Searchable glossary box -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-sand-200 dark:border-slate-700 p-4 space-y-4">
+            <div class="relative">
+              <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3.5 text-slate-400"></i>
+              <input type="text" id="glossarySearch" onkeyup="filterGlossary()" placeholder="Search terms (e.g. Inshallah, Haram, Sunnah)..." class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-sand-200 dark:border-slate-700 bg-sand-50 dark:bg-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+            </div>
+
+            <div class="max-h-96 overflow-y-auto space-y-2 pr-1" id="glossaryList">
+              
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Inshallah (إن شاء الله)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">Phrase</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  "If God wills." An acknowledgment of human humility—that while we plan, the ultimate outcome rests in God's hands.
+                </p>
+              </div>
+
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Alhamdulillah (الحمد لله)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">Phrase</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  "All praise and gratitude is due to God." Uttered upon receiving good news, sneezing, or expressing contentment in trial.
+                </p>
+              </div>
+
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Haram (حرام)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300">Legal Term</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  Forbidden or sacredly protected. Refers to acts that harm the soul, body, or society (such as theft, lying, usury, murder, or intoxication).
+                </p>
+              </div>
+
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Sunnah (سنة)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">Tradition</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  The verified lifestyle, habits, ethical manners, and specific examples modeled by Prophet Muhammad.
+                </p>
+              </div>
+
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Fatwa (فتوى)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200">Legal Term</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  A non-binding scholarly legal opinion on an issue of daily life or contemporary ethics, not an edict of doom as media often depicts.
+                </p>
+              </div>
+
+              <div class="glossary-item p-3 rounded-xl bg-sand-50/70 dark:bg-slate-900/60 border border-sand-100 dark:border-slate-800">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900 dark:text-slate-100">Dua (دعاء)</span>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">Worship</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                  Spontaneous personal prayer and supplication directly from the heart to God, requesting healing, forgiveness, or strength.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: Safe, Anonymous Question Form -->
+    <section id="ask" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div class="rounded-3xl p-8 sm:p-12 bg-white dark:bg-slate-800 border border-sand-200 dark:border-slate-700 shadow-xl relative overflow-hidden">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center mx-auto mb-2">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+          </div>
+          <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Ask Anything Without Pressure</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            No question is silly, taboo, or offensive. Whether you want to know about our stance on science, personal daily routines, or sensitive political issues, ask freely and anonymously.
+          </p>
+        </div>
+
+        <form id="askForm" onsubmit="handleQuestionSubmit(event)" class="space-y-5">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your First Name or Nickname (Optional)</label>
+              <input type="text" id="inquirerName" placeholder="e.g. Curious Seeker" class="w-full px-4 py-3 rounded-xl border border-sand-200 dark:border-slate-700 bg-sand-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your Background / Perspective (Optional)</label>
+              <select id="inquirerBackground" class="w-full px-4 py-3 rounded-xl border border-sand-200 dark:border-slate-700 bg-sand-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                <option value="Prefer not to say">Prefer not to say</option>
+                <option value="Christian">Christian</option>
+                <option value="Atheist / Agnostic">Atheist / Agnostic</option>
+                <option value="Jewish">Jewish</option>
+                <option value="Hindu / Buddhist">Hindu / Buddhist</option>
+                <option value="Curious Explorer">Curious Explorer</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Your Question <span class="text-red-500">*</span></label>
+            <textarea id="inquirerQuestion" required rows="4" placeholder="What have you always wanted to ask about Islam, Muslims, or the Quran?" class="w-full px-4 py-3 rounded-xl border border-sand-200 dark:border-slate-700 bg-sand-50 dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
+          </div>
+
+          <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
+            <span class="text-xs text-slate-400 flex items-center gap-1.5">
+              <i data-lucide="lock" class="w-3.5 h-3.5"></i> 100% Anonymous & Zero Marketing Follow-Up
+            </span>
+            <button type="submit" id="submitQuestionBtn" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm shadow-md transition-all">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Get Instant Nuanced Answer</span>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Response Container for AI / Curated Response -->
+        <div id="answerDisplay" class="hidden mt-8 p-6 rounded-2xl bg-emerald-50 dark:bg-slate-900 border border-emerald-200 dark:border-emerald-900 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <div class="w-7 h-7 rounded-lg bg-emerald-700 text-white flex items-center justify-center text-xs">
+                <i data-lucide="compass" class="w-4 h-4"></i>
+              </div>
+              <span class="font-bold text-sm text-emerald-950 dark:text-emerald-300">Answer to Your Question</span>
+            </div>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-200 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 font-mono">Respectful Guidance</span>
+          </div>
+          <div id="answerText" class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed space-y-2">
+            <!-- Dynamic answer injected here -->
+          </div>
+          <div class="pt-2 flex justify-end">
+            <button onclick="resetAnswerBox()" class="text-xs text-emerald-700 dark:text-emerald-400 hover:underline">Ask another question</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-28 border-t border-sand-200 dark:border-slate-800 bg-sand-100/70 dark:bg-slate-950 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <span class="font-display font-bold text-xl text-slate-900 dark:text-white">Discover Islam</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
+            An independent educational initiative aimed at building bridges, dissolving prejudices, and presenting authentic Islamic teachings with warmth, accuracy, and mutual respect.
+          </p>
+          <p class="text-xs text-slate-400">
+            "O humanity! We created you from a single pair and made you into nations and tribes, that you may get to know one another." (Quran 49:13)
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-3">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+            <li><a href="#home" class="hover:text-emerald-600">The Essence of Islam</a></li>
+            <li><a href="#beliefs" class="hover:text-emerald-600">6 Articles of Faith</a></li>
+            <li><a href="#pillars" class="hover:text-emerald-600">5 Daily Pillars</a></li>
+            <li><a href="#misconceptions" class="hover:text-emerald-600">Misconceptions & Women</a></li>
+            <li><a href="#stories" class="hover:text-emerald-600">Real Stories & Mosque Tour</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-3">Reassurance</h4>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-sand-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-2">
+            <p><strong>Zero Coercion Policy:</strong></p>
+            <p>We respect your sovereign free will and worldview. This site will never track you with invasive ads or pressure you in any way.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-sand-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
+        © <span id="currentYear"></span> Discover Islam Project. Built with goodwill and open hospitality for everyone.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODAL 1: Mosque Visitor Checklist -->
+  <div id="mosqueModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-sand-200 dark:border-slate-700 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-sand-100 dark:border-slate-700">
+        <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">Visiting a Mosque: Quick Checklist</h3>
+        <button onclick="closeMosqueModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+        <div class="flex items-start space-x-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0"></i>
+          <div><strong>Dress Modestly:</strong> Loose, comfortable clothing covering shoulders and knees. Women often drape a loose scarf over their hair as a sign of respect.</div>
+        </div>
+        <div class="flex items-start space-x-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0"></i>
+          <div><strong>Shoes Off:</strong> Place your footwear on the shoe racks at the lobby.</div>
+        </div>
+        <div class="flex items-start space-x-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0"></i>
+          <div><strong>When People Pray:</strong> Avoid walking directly across in front of someone actively in prayer. Quiet observation is totally welcome.</div>
+        </div>
+        <div class="flex items-start space-x-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0"></i>
+          <div><strong>Greeting:</strong> You can greet anyone with <em>"Assalamu Alaikum"</em> (Peace be upon you) or simply a warm "Hello!"</div>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="closeMosqueModal()" class="w-full py-2.5 rounded-xl bg-emerald-700 text-white font-medium text-sm">
+          Got it, thank you!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Next Steps & Free Quran Modal -->
+  <div id="nextStepsModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-sand-200 dark:border-slate-700 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-sand-100 dark:border-slate-700">
+        <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">Next Steps: Read & Visit</h3>
+        <button onclick="closeNextStepsModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+        <div class="p-4 rounded-2xl bg-sand-50 dark:bg-slate-900 border border-sand-200 dark:border-slate-800">
+          <h4 class="font-bold text-slate-900 dark:text-white mb-1">1. Recommended English Translations of the Quran</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">We recommend clear modern translations that preserve flow and context:</p>
+          <ul class="list-disc list-inside text-xs space-y-1">
+            <li><strong>M.A.S. Abdel Haleem</strong> (Oxford World's Classics) — exceptionally readable.</li>
+            <li><strong>The Clear Quran</strong> by Dr. Mustafa Khattab.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-sand-50 dark:bg-slate-900 border border-sand-200 dark:border-slate-800">
+          <h4 class="font-bold text-slate-900 dark:text-white mb-1">2. Visiting Your Local Mosque</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Virtually every city has a community Islamic center. Most offer designated open house tours, free tea, and guided Q&A sessions on weekends. Simply call or check their website for visitor open days!
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="closeNextStepsModal()" class="w-full py-2.5 rounded-xl bg-emerald-700 text-white font-medium text-sm">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-sm pointer-events-none">
+    <div id="toastIcon" class="text-emerald-400"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+    <span id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- JavaScript Functionality -->
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleBtnMobile = document.getElementById('themeToggleBtnMobile');
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      lucide.createIcons();
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Check system preference
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Close on link click
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all others
+      document.querySelectorAll('.faq-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faqAccordion svg').forEach(svg => svg.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    // Misconceptions Filter
+    function filterMisconception(category) {
+      const cards = document.querySelectorAll('.misc-card');
+      const buttons = document.querySelectorAll('.misc-filter-btn');
+
+      // Update button styling
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-emerald-700', 'text-white');
+        btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-200');
+      });
+      event.target.classList.add('bg-emerald-700', 'text-white');
+      event.target.classList.remove('bg-white', 'dark:bg-slate-800');
+
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          if (card.classList.contains(`misc-${category}`)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // Glossary Real-time Search
+    function filterGlossary() {
+      const input = document.getElementById('glossarySearch').value.toLowerCase();
+      const items = document.querySelectorAll('.glossary-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Modals control
+    function openMosqueModal() {
+      document.getElementById('mosqueModal').classList.remove('hidden');
+    }
+    function closeMosqueModal() {
+      document.getElementById('mosqueModal').classList.add('hidden');
+    }
+
+    function openNextStepsModal() {
+      document.getElementById('nextStepsModal').classList.remove('hidden');
+    }
+    function closeNextStepsModal() {
+      document.getElementById('nextStepsModal').classList.add('hidden');
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 4000);
+    }
+
+    // Anonymous Q&A handler (Direct Gemini API Call with curated fallback)
+    async function handleQuestionSubmit(event) {
+      event.preventDefault();
+      const question = document.getElementById('inquirerQuestion').value.trim();
+      const name = document.getElementById('inquirerName').value.trim() || 'Curious Seeker';
+      const background = document.getElementById('inquirerBackground').value;
+      const submitBtn = document.getElementById('submitQuestionBtn');
+      const answerDisplay = document.getElementById('answerDisplay');
+      const answerText = document.getElementById('answerText');
+
+      if (!question) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span class="inline-block animate-spin mr-2">⟳</span> Formulating respectful answer...`;
+
+      // System instruction for Gemini API
+      const systemPrompt = `You are a world-class Islamic scholar and educator responding directly to non-Muslim visitors, seekers, Christians, or atheists. 
+Your tone must be extraordinarily warm, hospitable, nuanced, intellectually grounded, peaceful, and respectful. 
+Do not preach, judge, or pressure them to convert. Cite authentic Quranic principles, prophetic sayings, and clear historical facts where relevant. Keep the answer clear and under 250 words.`;
+
+      const userQuery = `The inquirer's name is "${name}" (Background: ${background}). They are asking: "${question}". Please provide a helpful, warm, and nuanced answer addressing their specific question about Islam.`;
+
+      // Canvas provides key at runtime when left empty
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      try {
+        const payload = {
+          contents: [{ parts: [{ text: userQuery }] }],
+          systemInstruction: { parts: [{ text: systemPrompt }] }
+        };
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          const generatedAnswer = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (generatedAnswer) {
+            renderAnswer(name, generatedAnswer);
+            return;
+          }
+        }
+        // Fallback if network or key issue
+        fallbackAnswer(question, name);
+      } catch (err) {
+        console.debug('Using verified educational response fallback...');
+        fallbackAnswer(question, name);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i data-lucide="send" class="w-4 h-4 mr-2"></i><span>Get Instant Nuanced Answer</span>`;
+        lucide.createIcons();
+      }
+    }
+
+    function renderAnswer(name, text) {
+      const answerDisplay = document.getElementById('answerDisplay');
+      const answerText = document.getElementById('answerText');
+      
+      // Clean paragraphs
+      const paragraphs = text.split('\n\n').map(p => `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`).join('');
+      
+      answerText.innerHTML = `
+        <div class="p-3 bg-white/70 dark:bg-slate-800/80 rounded-xl mb-3 border border-sand-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+          Thank you for asking with an open mind, <strong>${name}</strong>. Here is an authentic overview:
+        </div>
+        ${paragraphs}
+      `;
+      answerDisplay.classList.remove('hidden');
+      answerDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      showToast("Answer generated successfully!");
+      lucide.createIcons();
+    }
+
+    function fallbackAnswer(question, name) {
+      // Intelligent fallback covering major inquiries
+      const qLower = question.toLowerCase();
+      let response = `Thank you, ${name}, for this sincere inquiry. In Islam, questions are welcomed as the pathway to conviction. 
+      God encourages reason and curiosity throughout the Quran. Islam emphasizes peace (Salam), absolute devotion to the One Creator without idols or intermediaries, and treats every human being as a brother in faith or a brother in common humanity. 
+      We encourage you to explore the Quran in your preferred language or visit a nearby community mosque where local teachers will warmly sit with you over tea with zero pressure.`;
+
+      if (qLower.includes('jesus') || qLower.includes('bible')) {
+        response = `Hello ${name}! Muslims hold Jesus (peace be upon him) in the highest esteem. He is recognized as the Messiah born to the Virgin Mary, endowed with miracles of healing by God's permission. The central distinction is that Muslims believe Jesus called people to worship the One True God alone, rather than himself as God.`;
+      } else if (qLower.includes('women') || qLower.includes('hijab')) {
+        response = `Hello ${name}! In Islam, spiritual equality before God is absolute: both men and women receive the exact same rewards for faith, prayer, and charity. The hijab is an act of personal devotion and modesty before God, not oppression. Historically, Islamic law secured women's legal identity, private wealth, and inheritance centuries before other civilizations.`;
+      } else if (qLower.includes('jihad') || qLower.includes('violence') || qLower.includes('peace')) {
+        response = `Hello ${name}! The true meaning of 'Jihad' is personal internal struggle against arrogance, injustice, and greed. Armed struggle is strictly permitted only in defensive response to active tyranny, and harming non-combatants, children, or places of worship (including churches and synagogues) is unconditionally prohibited by the Prophet Muhammad.`;
+      }
+
+      renderAnswer(name, response);
+    }
+
+    function resetAnswerBox() {
+      document.getElementById('answerDisplay').classList.add('hidden');
+      document.getElementById('inquirerQuestion').value = '';
+      document.getElementById('inquirerQuestion').focus();
+    }
+  </script>
+</body>
+</html>
